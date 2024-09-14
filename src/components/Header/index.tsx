@@ -7,7 +7,7 @@ const Header = () => {
       <S.Header>
         <S.HeaderContainer>
           <h1>web-app-treino</h1>
-          <img src="http://via.placeholder.com/70x70" alt="" />
+          <S.ProfilePic src="http://via.placeholder.com/70x70" alt="" />
         </S.HeaderContainer>
       </S.Header>
     </>
