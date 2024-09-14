@@ -1,14 +1,22 @@
 import { GlobalStyle } from './styles'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Header from './components/Header'
-import TreinoDia from './components/TreinoDia'
+import Home from './pages/Home'
+
+const routes = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />
+  },
+])
 
 function App() {
   return (
     <>
       <GlobalStyle />
-      <Header />
-      <TreinoDia />
+        <Header />
+        <RouterProvider router={routes} />
     </>
 
   );
