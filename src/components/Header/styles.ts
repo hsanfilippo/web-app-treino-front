@@ -9,9 +9,13 @@ export const Header = styled.header`
   h1 {
     color: #fff;
   }
+`
 
-  img {
-    border-radius: 50%;
+export const ProfilePic = styled.img`
+  border-radius: 50%;
+  cursor: pointer;
+  &:hover {
+    scale: 1.03;
   }
 `
 
