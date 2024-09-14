@@ -8,18 +8,17 @@ const routes = createBrowserRouter([
   {
     path: '/',
     element: <Home />
-  },
+  }
 ])
 
 function App() {
   return (
     <>
       <GlobalStyle />
-        <Header />
-        <RouterProvider router={routes} />
+      <Header />
+      <RouterProvider router={routes} />
     </>
-
-  );
+  )
 }
 
-export default App;
+export default App

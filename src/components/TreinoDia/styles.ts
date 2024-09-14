@@ -7,7 +7,6 @@ export const Container = styled.div`
   margin: 0 auto;
 `
 
-
 export const MediumTitle = styled.p`
   color: ${cores.corPrincipal};
   font-size: 24px;
@@ -15,7 +14,6 @@ export const MediumTitle = styled.p`
   margin-top: 48px;
   font-weight: bold;
 `
-
 
 export const Card = styled.div`
   background-color: ${cores.corPrincipal};
@@ -25,18 +23,15 @@ export const Card = styled.div`
   text-align: center;
 `
 
-
 export const CardTitle = styled.h2`
   color: ${cores.corSecundaria};
   font-size: 30px;
 `
 
-
 export const Lista = styled.ul`
   color: ${cores.corSecundaria};
   margin: 24px 0 48px 0;
 `
-
 
 export const ItemLista = styled.li`
   margin-top: 8px;
@@ -45,14 +40,12 @@ export const ItemLista = styled.li`
   font-size: 18px;
 `
 
-
 export const ButtonContainer = styled.div`
   max-width: 100%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 `
-
 
 export const ButtonPrimary = styled.button`
   background-color: ${cores.corBotaoPrimario};
@@ -66,7 +59,6 @@ export const ButtonPrimary = styled.button`
   border: none;
   cursor: pointer;
 `
-
 
 export const ButtonSecondary = styled.button`
   background-color: ${cores.corBotaoSecundario};

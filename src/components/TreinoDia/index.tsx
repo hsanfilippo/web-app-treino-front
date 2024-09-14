@@ -1,7 +1,6 @@
 import * as S from './styles'
 
 const TreinoDia = () => {
-
   return (
     <>
       <S.Container>
@@ -22,8 +21,7 @@ const TreinoDia = () => {
         </S.Card>
       </S.Container>
     </>
-
   )
 }
 
-export default TreinoDia;
+export default TreinoDia

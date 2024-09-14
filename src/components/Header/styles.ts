@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
-
 export const Header = styled.header`
   background-color: ${cores.corPrincipal};
   height: 15vh;

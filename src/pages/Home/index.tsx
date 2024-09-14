@@ -1,6 +1,5 @@
 import TreinoDia from '../../components/TreinoDia'
 
-
 const Home = () => {
   return (
     <>
