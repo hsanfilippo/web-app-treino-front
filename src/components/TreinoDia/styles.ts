@@ -28,6 +28,11 @@ export const CardTitle = styled.h2`
   font-size: 30px;
 `
 
+export const CardTitleSmall = styled.h2`
+  color: ${cores.corSecundaria};
+  font-size: 20px;
+`
+
 export const Lista = styled.ul`
   color: ${cores.corSecundaria};
   margin: 24px 0 48px 0;
