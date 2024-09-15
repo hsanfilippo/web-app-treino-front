@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react'
 
 import * as S from '../../styles/index'
 
-const Props = [{}]
-
 const ListTreinos = () => {
   const [treinos, setTreinos] = useState<any[]>([])
   const [loading, setLoading] = useState<boolean>(true)
