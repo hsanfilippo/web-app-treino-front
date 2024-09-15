@@ -4,8 +4,6 @@ const Treinos = () => {
   return (
     <ul>
       <ListTreinos />
-      <ListTreinos />
-      <ListTreinos />
     </ul>
   )
 }
