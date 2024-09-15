@@ -13,7 +13,7 @@ const routes = createBrowserRouter([
   {
     path: 'treinos/',
     element: <Treinos />
-  }
+  },
 ])
 
 function App() {
