@@ -116,6 +116,19 @@ export const ButtonSecondary = styled.button`
   cursor: pointer;
 `
 
+export const LgButtonSecondary = styled.button`
+  background-color: ${cores.corBotaoSecundario};
+  color: ${cores.corSecundaria};
+  height: 40px;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+`
+
 // Misc
 
 export const LineDivision = styled.div`
