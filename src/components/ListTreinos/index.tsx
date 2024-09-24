@@ -24,6 +24,20 @@ const ListTreinos = () => {
     }
   }
 
+  const deleteTreino = async (id_treino: string) => {
+    try {
+      const response = await fetch(`http://localhost:8000/api/treinos/${id_treino}/`, {
+        method: 'DELETE'
+      })
+      if (!response.ok) {
+        throw new Error('Erro ao deletar o treino da API')
+      }
+      setTreinos(treinos.filter((treino) => treino.id !== id_treino))
+    } catch (err: any) {
+      setError(err.message)
+    }
+  }
+
   useEffect(() => {
     fetchTreinos()
   }, [])
@@ -63,7 +77,15 @@ const ListTreinos = () => {
                 )
               )}
             </S.Lista>
-            <S.ButtonPrimary>Abrir treino</S.ButtonPrimary>
+            <S.ButtonContainer>
+              <div>
+                <S.ButtonDelete onClick={() => deleteTreino(treino.id)}>
+                  Excluir
+                </S.ButtonDelete>
+                <S.ButtonEdit>Editar</S.ButtonEdit>
+              </div>
+              <S.ButtonPrimary>Abrir treino</S.ButtonPrimary>
+            </S.ButtonContainer>
           </S.Card>
         ))}
       </S.Container>
