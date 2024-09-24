@@ -7,7 +7,9 @@ export const cores = {
   corPrincipal: '#141414',
   corSecundaria: '#fff',
   corBotaoPrimario: '#fff',
-  corBotaoSecundario: '#6340FF'
+  corBotaoSecundario: '#6340FF',
+  corBotaoDelete: 'red',
+  corBotaoEdit: 'orange'
 }
 
 export const GlobalStyle = createGlobalStyle`
@@ -130,6 +132,33 @@ export const LgButtonSecondary = styled.button`
   cursor: pointer;
 `
 
+export const ButtonDelete = styled.button`
+  background-color: ${cores.corBotaoDelete};
+  color: ${cores.corSecundaria};
+  height: 40px;
+  width: 100px;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-right: 8px;
+`
+
+export const ButtonEdit = styled.button`
+  background-color: ${cores.corBotaoEdit};
+  color: ${cores.corSecundaria};
+  height: 40px;
+  width: 100px;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-right: 8px;
+`
 // Misc
 
 export const LineDivision = styled.div`
