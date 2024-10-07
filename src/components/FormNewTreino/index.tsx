@@ -75,9 +75,7 @@ const FormNewTreino = () => {
               onChange={(e) => SetDescricao(e.target.value)}
               placeholder="Descrição"
             />
-            <a href="http://localhost:3000/treinos/">
-              <S.LgButtonSecondary type="submit">Criar</S.LgButtonSecondary>
-            </a>
+            <S.LgButtonSecondary type="submit">Criar</S.LgButtonSecondary>
           </Styles.FormContainer>
         </S.Card>
       </S.Container>

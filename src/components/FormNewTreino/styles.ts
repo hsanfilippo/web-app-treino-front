@@ -18,7 +18,7 @@ export const FormContainer = styled.form`
 
   textarea {
     width: 100%;
-    height: 15vh;
+    height: 80px;
     resize: none;
     font-size: 18px;
     background-color: rgba(0, 0, 0, 0.07);
