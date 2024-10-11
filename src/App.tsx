@@ -5,6 +5,7 @@ import Header from './components/Header'
 import Home from './pages/Home'
 import Treinos from './pages/Treinos'
 import NewTreino from './pages/NewTreino'
+import EditTreino from './pages/EditTreino'
 
 const routes = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const routes = createBrowserRouter([
   {
     path: 'treinos/new/',
     element: <NewTreino />
+  },
+  {
+    path: 'treinos/:id/edit/',
+    element: <EditTreino />
   }
 ])
 

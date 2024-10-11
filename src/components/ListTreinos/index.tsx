@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from 'react'
 
 import * as S from '../../styles/index'
+import { useNavigate } from 'react-router-dom'
 
 const ListTreinos = () => {
   const [treinos, setTreinos] = useState<any[]>([])
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
+
+  const navigate = useNavigate()
 
   const fetchTreinos = async () => {
     try {
@@ -26,9 +29,12 @@ const ListTreinos = () => {
 
   const deleteTreino = async (id_treino: string) => {
     try {
-      const response = await fetch(`http://localhost:8000/api/treinos/${id_treino}/`, {
-        method: 'DELETE'
-      })
+      const response = await fetch(
+        `http://localhost:8000/api/treinos/${id_treino}/`,
+        {
+          method: 'DELETE'
+        }
+      )
       if (!response.ok) {
         throw new Error('Erro ao deletar o treino da API')
       }
@@ -82,10 +88,17 @@ const ListTreinos = () => {
                 <S.ButtonDelete onClick={() => deleteTreino(treino.id)}>
                   Excluir
                 </S.ButtonDelete>
-                <S.ButtonEdit>Editar</S.ButtonEdit>
+                <S.ButtonEdit
+                  onClick={() => navigate(`/treinos/${treino.id}/edit/`)}
+                >
+                  Editar
+                </S.ButtonEdit>
               </div>
               <S.ButtonPrimary>Abrir treino</S.ButtonPrimary>
             </S.ButtonContainer>
+            <S.ItemLista>
+              Editado por ultimo em: {treino.updated_at}
+            </S.ItemLista>
           </S.Card>
         ))}
       </S.Container>
