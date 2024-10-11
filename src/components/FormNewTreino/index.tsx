@@ -8,6 +8,24 @@ const FormNewTreino = () => {
   const [error, setError] = useState<string | null>(null)
   const [nome, SetNome] = useState<string>('')
   const [descricao, SetDescricao] = useState<string>('')
+  const [treinos, setTreinos] = useState<any[]>([])
+
+  const fetchTreinos = async () => {
+    try {
+      const response = await fetch('http://localhost:8000/api/treinos/')
+      if (!response.ok) {
+        throw new Error('Erro ao requisitar os treinos da API')
+      }
+      const data = await response.json()
+      setTreinos(data)
+    } catch (err: any) {
+      setError(err.message)
+    }
+  }
+
+  useEffect(() => {
+    fetchTreinos()
+  }, [])
 
   const navigate = useNavigate()
 
@@ -46,7 +64,7 @@ const FormNewTreino = () => {
     }
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const apenasCriar = (e: React.FormEvent) => {
     e.preventDefault()
     if (validateFields(nome, descricao)) {
       postTreino(nome, descricao)
@@ -63,7 +81,7 @@ const FormNewTreino = () => {
     <>
       <S.Container>
         <S.Card>
-          <Styles.FormContainer onSubmit={handleSubmit}>
+          <Styles.FormContainer onSubmit={apenasCriar}>
             <input
               type="text"
               value={nome}
@@ -75,6 +93,9 @@ const FormNewTreino = () => {
               onChange={(e) => SetDescricao(e.target.value)}
               placeholder="Descrição"
             />
+            <S.LgButtonPrimary type="button">
+              Adicionar exercício
+            </S.LgButtonPrimary>
             <S.LgButtonSecondary type="submit">Criar</S.LgButtonSecondary>
           </Styles.FormContainer>
         </S.Card>
