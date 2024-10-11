@@ -119,6 +119,19 @@ export const ButtonSecondary = styled.button`
   cursor: pointer;
 `
 
+export const LgButtonPrimary = styled.button`
+  background-color: ${cores.corBotaoPrimario};
+  color: ${cores.corPrincipal};
+  height: 40px;
+  width: 100%;
+  padding: 10px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 8px;
+`
 export const LgButtonSecondary = styled.button`
   background-color: ${cores.corBotaoSecundario};
   color: ${cores.corSecundaria};
@@ -130,6 +143,7 @@ export const LgButtonSecondary = styled.button`
   border-radius: 8px;
   border: none;
   cursor: pointer;
+  margin-bottom: 8px;
 `
 
 export const ButtonDelete = styled.button`
@@ -159,6 +173,40 @@ export const ButtonEdit = styled.button`
   cursor: pointer;
   margin-right: 8px;
 `
+
+// Form Styles
+
+export const FormContainer = styled.form`
+  display: flex-box;
+  max-width: 100%;
+
+  input {
+    width: 100%;
+    height: 8vh;
+    font-size: 30px;
+    padding: 6px;
+    background: none;
+    border: none;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #fff;
+  }
+
+  textarea {
+    width: 100%;
+    height: 80px;
+    resize: none;
+    font-size: 18px;
+    background-color: rgba(0, 0, 0, 0.07);
+    border: none;
+    border-radius: 8px;
+    padding: 16px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+`
+
 // Misc
 
 export const LineDivision = styled.div`
