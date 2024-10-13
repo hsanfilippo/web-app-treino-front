@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import { format } from 'date-fns'
 
 import * as S from '../../styles/index'
 import { useNavigate } from 'react-router-dom'
@@ -63,44 +64,49 @@ const ListTreinos = () => {
   return (
     <>
       <S.Container>
-        {treinos.map((treino) => (
-          <S.Card key={treino.id}>
-            <S.CardTitleSmall>{treino.nome}</S.CardTitleSmall>
-            <S.ItemLista>{treino.descricao}</S.ItemLista>
-            <S.LineDivision />
-            <S.Lista>
-              {treino.exercicios.map(
-                (exercicio: {
-                  id: string
-                  nome_exerc: string
-                  series: number
-                  reps: number
-                }) => (
-                  <S.ItemLista key={exercicio.id}>
-                    {exercicio.nome_exerc} - {exercicio.series} x{' '}
-                    {exercicio.reps} reps
-                  </S.ItemLista>
-                )
-              )}
-            </S.Lista>
-            <S.ButtonContainer>
-              <div>
-                <S.ButtonDelete onClick={() => deleteTreino(treino.id)}>
-                  Excluir
-                </S.ButtonDelete>
-                <S.ButtonEdit
-                  onClick={() => navigate(`/treinos/${treino.id}/edit/`)}
-                >
-                  Editar
-                </S.ButtonEdit>
-              </div>
-              <S.ButtonPrimary>Abrir treino</S.ButtonPrimary>
-            </S.ButtonContainer>
-            <S.ItemLista>
-              Editado por ultimo em: {treino.updated_at}
-            </S.ItemLista>
-          </S.Card>
-        ))}
+        {treinos.map((treino) => {
+          const formatDate = format(new Date(treino.updated_at), 'dd/MM/yyyy')
+          const formatTime = format(new Date(treino.updated_at), 'HH:mm')
+
+          return (
+            <S.Card key={treino.id}>
+              <S.CardTitleSmall>{treino.nome}</S.CardTitleSmall>
+              <S.ItemLista>{treino.descricao}</S.ItemLista>
+              <S.LineDivision />
+              <S.Lista>
+                {treino.exercicios.map(
+                  (exercicio: {
+                    id: string
+                    nome_exerc: string
+                    series: number
+                    reps: number
+                  }) => (
+                    <S.ItemLista key={exercicio.id}>
+                      {exercicio.nome_exerc} - {exercicio.series} x{' '}
+                      {exercicio.reps} reps
+                    </S.ItemLista>
+                  )
+                )}
+              </S.Lista>
+              <S.ButtonContainer>
+                <div>
+                  <S.ButtonDelete onClick={() => deleteTreino(treino.id)}>
+                    Excluir
+                  </S.ButtonDelete>
+                  <S.ButtonEdit
+                    onClick={() => navigate(`/treinos/${treino.id}/edit/`)}
+                  >
+                    Editar
+                  </S.ButtonEdit>
+                </div>
+                <S.ButtonPrimary>Abrir treino</S.ButtonPrimary>
+              </S.ButtonContainer>
+              <S.ItemLista>
+                Editado por ultimo em: {formatDate} às {formatTime}
+              </S.ItemLista>
+            </S.Card>
+          )
+        })}
       </S.Container>
     </>
   )
