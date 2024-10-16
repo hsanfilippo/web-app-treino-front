@@ -17,6 +17,10 @@ export const FormContainer = styled.form`
 
   .isActive {
   }
+
+  .hidden {
+    display: none;
+  }
 `
 
 export const InputTreino = styled.input`
