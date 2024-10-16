@@ -85,7 +85,7 @@ const FormNewTreino = () => {
     setIsAdding(!isAdding)
   }
 
-  function validateFields(inputNome: string, inputDesc: string) {
+  function validateFieldsTreino(inputNome: string, inputDesc: string) {
     if (inputNome.length === 0) {
       alert('Campo "Nome do treino" está vazio.')
       return false
@@ -99,7 +99,7 @@ const FormNewTreino = () => {
 
   const apenasCriar = (e: React.FormEvent) => {
     e.preventDefault()
-    if (validateFields(nome, descricao)) {
+    if (validateFieldsTreino(nome, descricao)) {
       postTreino(nome, descricao)
       alert('Seu treino foi criado! ([POST]localhost:8000/api/treinos/)')
       navigate('/treinos/')
