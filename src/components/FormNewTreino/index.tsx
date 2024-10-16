@@ -44,11 +44,12 @@ const FormNewTreino = () => {
 
   const navigate = useNavigate()
 
-  const postTreino = async (nome: string, descricao: string) => {
+  const postTreino = async (nome: string, descricao: string, exercicios?: Exercicio[]) => {
     try {
       const novoTreino = {
         nome,
-        descricao
+        descricao,
+        exercicios
       }
 
       const response = await fetch('http://localhost:8000/api/treinos/', {
@@ -67,24 +68,6 @@ const FormNewTreino = () => {
     }
   }
 
-  const addExercicio = () => {
-    const newExercicio: Exercicio = {
-      nome_exerc: nomeExercicio,
-      series: series,
-      reps: reps,
-      interv_seg: intervSeg
-    }
-
-    setExercicios([...exercicios, newExercicio])
-
-    setNomeExercicio('')
-    setSeries(0)
-    setReps(0)
-    setIntervSeg(0)
-
-    setIsAdding(!isAdding)
-  }
-
   function validateFieldsTreino(inputNome: string, inputDesc: string) {
     if (inputNome.length === 0) {
       alert('Campo "Nome do treino" está vazio.')
@@ -94,6 +77,49 @@ const FormNewTreino = () => {
       return false
     } else {
       return true
+    }
+  }
+
+  function validateFieldsExerc(
+    inputNome: string,
+    inputSeries: number,
+    inputReps: number,
+    inputInterval: number
+  ) {
+    if (inputNome.length === 0) {
+      alert('Campo "Nome do exercício" está vazio.')
+      return false
+    } else if (inputSeries < 1) {
+      alert('Insira um número de séries à realizar.')
+      return false
+    } else if (inputReps < 1) {
+      alert('Insira um número de repetições à realizar.')
+      return false
+    } else if (inputInterval < 1) {
+      alert('Insira um tempo de descanso (segundos).')
+      return false
+    } else {
+      return true
+    }
+  }
+
+  const addExercicio = () => {
+    const newExercicio: Exercicio = {
+      nome_exerc: nomeExercicio,
+      series: series,
+      reps: reps,
+      interv_seg: intervSeg
+    }
+
+    if (validateFieldsExerc(nomeExercicio, series, reps, intervSeg)) {
+      setExercicios([...exercicios, newExercicio])
+
+      setNomeExercicio('')
+      setSeries(0)
+      setReps(0)
+      setIntervSeg(0)
+
+      setIsAdding(!isAdding)
     }
   }
 
@@ -129,25 +155,22 @@ const FormNewTreino = () => {
             <ul>
               {exercicios.map((exercicio, index) => (
                 <li key={index}>
-                  <S.CardTitleSmall>{exercicio.nome_exerc}</S.CardTitleSmall>
-                  <S.CardTitleSmall>{exercicio.series}</S.CardTitleSmall>
-                  <S.CardTitleSmall>{exercicio.reps}</S.CardTitleSmall>
-                  <S.CardTitleSmall>{exercicio.interv_seg}</S.CardTitleSmall>
+                  <S.CardTitleSmall>nome: {exercicio.nome_exerc}</S.CardTitleSmall>
+                  <S.CardTitleSmall>{exercicio.series} series</S.CardTitleSmall>
+                  <S.CardTitleSmall>{exercicio.reps} reps</S.CardTitleSmall>
+                  <S.CardTitleSmall>descanso: {exercicio.interv_seg} segundos</S.CardTitleSmall>
                 </li>
               ))}
             </ul>
             <S.LgButtonPrimary
               type="button"
-              className={isAdding ? 'isNotActive' : 'isActive'}
+              className={isAdding ? 'hidden' : 'isActive'}
               onClick={() => setIsAdding(!isAdding)}
             >
               Novo exercicio
             </S.LgButtonPrimary>
 
-            <form
-              action="submit"
-              className={isAdding ? 'isActive' : 'isNotActive'}
-            >
+            <form action="submit" className={isAdding ? 'isActive' : 'hidden'}>
               <Styles.InputExercicio
                 type="text"
                 placeholder="Novo exercicio:"
@@ -196,7 +219,7 @@ const FormNewTreino = () => {
               <div className="exercicios">
                 <S.LgButtonPrimary
                   type="button"
-                  className={isAdding ? 'isActive' : 'isNotActive'}
+                  className={isAdding ? 'isActive' : 'hidden'}
                   onClick={addExercicio}
                 >
                   Adicionar exercicio
