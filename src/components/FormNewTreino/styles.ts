@@ -1,5 +1,63 @@
 import styled from 'styled-components'
 
+import { cores } from '../../styles'
+
+export const ExercicioCard = styled.div`
+  background: linear-gradient(
+    90deg,
+    ${cores.corBotaoSecundario} -200%,
+    ${cores.corPrincipal} 85%
+  );
+  margin-bottom: 8px;
+  padding: 16px;
+  border-radius: 8px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .icones {
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 35px;
+    border-radius: 8px;
+    padding: 4px;
+  }
+
+  .alarm-icon {
+    background-color: #fff;
+    border-radius: 3px;
+    height: 20 px;
+    margin-right: 8px;
+  }
+`
+
+export const ExercicioContainer = styled.div`
+  width: 230px;
+`
+
+export const SubsContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  max-width: 150px;
+`
+
+export const NomeExercicio = styled.h4`
+  color: #cb3663;
+  font-size: 20px;
+  margin-bottom: 8px;
+`
+
+export const SubsExercicio = styled.p`
+  font-size: 16px;
+  color: #fff;
+`
+
+export const IconExcluir = styled.img`
+  max-width: 55px;
+  border-radius: 50px;
+`
+
 export const FormContainer = styled.form`
   display: flex-box;
   max-width: 100%;

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { BiEditAlt } from 'react-icons/bi'
 
 import * as S from '../../styles/index'
 import * as Styles from './styles'
@@ -9,6 +10,7 @@ const FormNewTreino = () => {
     nome_exerc: string
     series: number
     reps: number
+    carga: number
     interv_seg: number
   }
 
@@ -23,6 +25,7 @@ const FormNewTreino = () => {
   const [nomeExercicio, setNomeExercicio] = useState<string>('')
   const [series, setSeries] = useState<number>(0)
   const [reps, setReps] = useState<number>(0)
+  const [carga, setCarga] = useState<number>(0)
   const [intervSeg, setIntervSeg] = useState<number>(0)
 
   const fetchTreinos = async () => {
@@ -44,7 +47,11 @@ const FormNewTreino = () => {
 
   const navigate = useNavigate()
 
-  const postTreino = async (nome: string, descricao: string, exercicios?: Exercicio[]) => {
+  const postTreino = async (
+    nome: string,
+    descricao: string,
+    exercicios?: Exercicio[]
+  ) => {
     try {
       const novoTreino = {
         nome,
@@ -84,6 +91,7 @@ const FormNewTreino = () => {
     inputNome: string,
     inputSeries: number,
     inputReps: number,
+    inputCarga: number,
     inputInterval: number
   ) {
     if (inputNome.length === 0) {
@@ -108,10 +116,11 @@ const FormNewTreino = () => {
       nome_exerc: nomeExercicio,
       series: series,
       reps: reps,
+      carga: carga,
       interv_seg: intervSeg
     }
 
-    if (validateFieldsExerc(nomeExercicio, series, reps, intervSeg)) {
+    if (validateFieldsExerc(nomeExercicio, series, reps, carga, intervSeg)) {
       setExercicios([...exercicios, newExercicio])
 
       setNomeExercicio('')
@@ -155,10 +164,32 @@ const FormNewTreino = () => {
             <ul>
               {exercicios.map((exercicio, index) => (
                 <li key={index}>
-                  <S.CardTitleSmall>nome: {exercicio.nome_exerc}</S.CardTitleSmall>
-                  <S.CardTitleSmall>{exercicio.series} series</S.CardTitleSmall>
-                  <S.CardTitleSmall>{exercicio.reps} reps</S.CardTitleSmall>
-                  <S.CardTitleSmall>descanso: {exercicio.interv_seg} segundos</S.CardTitleSmall>
+                  <Styles.ExercicioCard>
+                    <Styles.ExercicioContainer>
+                      <Styles.NomeExercicio>
+                        {exercicio.nome_exerc}
+                      </Styles.NomeExercicio>
+                      <Styles.SubsContainer>
+                        <div>
+                          <Styles.SubsExercicio>
+                            {exercicio.series} Series
+                          </Styles.SubsExercicio>
+                          <Styles.SubsExercicio>
+                            {exercicio.reps} Reps
+                          </Styles.SubsExercicio>
+                        </div>
+                        <div>
+                          <Styles.SubsExercicio>
+                            {exercicio.carga} kg
+                          </Styles.SubsExercicio>
+                          <Styles.SubsExercicio>
+                            Desc. {exercicio.interv_seg}s
+                          </Styles.SubsExercicio>
+                        </div>
+                      </Styles.SubsContainer>
+                    </Styles.ExercicioContainer>
+                    <BiEditAlt className="icones" />
+                  </Styles.ExercicioCard>
                 </li>
               ))}
             </ul>
@@ -200,6 +231,18 @@ const FormNewTreino = () => {
                   />
                   <Styles.LabelExercicio htmlFor="reps">
                     Reps
+                  </Styles.LabelExercicio>
+                </div>
+                <div>
+                  <Styles.InputExercicioNumber
+                    type="number"
+                    name="carga"
+                    min="0"
+                    max="300"
+                    onChange={(e) => setReps(Number(e.target.value))}
+                  />
+                  <Styles.LabelExercicio htmlFor="carga">
+                    Kg
                   </Styles.LabelExercicio>
                 </div>
               </div>
