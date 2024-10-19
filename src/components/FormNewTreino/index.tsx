@@ -139,7 +139,7 @@ const FormNewTreino = () => {
   const apenasCriar = (e: React.FormEvent) => {
     e.preventDefault()
     if (validateFieldsTreino(nome, descricao)) {
-      postTreino(nome, descricao)
+      postTreino(nome, descricao, exercicios)
       alert('Seu treino foi criado! ([POST]localhost:8000/api/treinos/)')
       navigate('/treinos/')
     }
@@ -205,7 +205,7 @@ const FormNewTreino = () => {
               Novo exercicio
             </S.LgButtonPrimary>
 
-            <form action="submit" className={isAdding ? 'isActive' : 'hidden'}>
+            <div className={isAdding ? 'isActive' : 'hidden'}>
               <Styles.InputExercicio
                 type="text"
                 placeholder="Novo exercicio:"
@@ -243,7 +243,7 @@ const FormNewTreino = () => {
                     name="carga"
                     min="0"
                     max="300"
-                    onChange={(e) => setReps(Number(e.target.value))}
+                    onChange={(e) => setCarga(Number(e.target.value))}
                   />
                   <Styles.LabelExercicio htmlFor="carga">
                     Kg
@@ -272,7 +272,7 @@ const FormNewTreino = () => {
                   Adicionar exercicio
                 </S.LgButtonPrimary>
               </div>
-            </form>
+            </div>
 
             <S.LgButtonSecondary type="submit">Criar</S.LgButtonSecondary>
           </Styles.FormContainer>
