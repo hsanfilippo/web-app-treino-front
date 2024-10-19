@@ -103,6 +103,9 @@ const FormNewTreino = () => {
     } else if (inputReps < 1) {
       alert('Insira um número de repetições à realizar.')
       return false
+    } else if (inputCarga < 0) {
+      alert('Insira um peso adequado')
+      return false
     } else if (inputInterval < 1) {
       alert('Insira um tempo de descanso (segundos).')
       return false
@@ -126,6 +129,7 @@ const FormNewTreino = () => {
       setNomeExercicio('')
       setSeries(0)
       setReps(0)
+      setCarga(0)
       setIntervSeg(0)
 
       setIsAdding(!isAdding)
