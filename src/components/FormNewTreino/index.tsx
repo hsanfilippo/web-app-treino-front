@@ -210,6 +210,7 @@ const FormNewTreino = () => {
                 type="text"
                 placeholder="Novo exercicio:"
                 className="isActive"
+                value={nomeExercicio}
                 onChange={(e) => setNomeExercicio(e.target.value)}
               />
               <div className="exercicios">
@@ -219,6 +220,7 @@ const FormNewTreino = () => {
                     name="series"
                     min="0"
                     max="15"
+                    value={series}
                     onChange={(e) => setSeries(Number(e.target.value))}
                   />
                   <Styles.LabelExercicio htmlFor="series">
@@ -231,6 +233,7 @@ const FormNewTreino = () => {
                     name="reps"
                     min="0"
                     max="50"
+                    value={reps}
                     onChange={(e) => setReps(Number(e.target.value))}
                   />
                   <Styles.LabelExercicio htmlFor="reps">
@@ -243,6 +246,7 @@ const FormNewTreino = () => {
                     name="carga"
                     min="0"
                     max="300"
+                    value={carga}
                     onChange={(e) => setCarga(Number(e.target.value))}
                   />
                   <Styles.LabelExercicio htmlFor="carga">
@@ -257,13 +261,21 @@ const FormNewTreino = () => {
                   name="intervalo"
                   min="0"
                   max="500"
+                  value={intervSeg}
                   onChange={(e) => setIntervSeg(Number(e.target.value))}
                 />
                 <Styles.LabelExercicio htmlFor="intervalo">
                   Segundos
                 </Styles.LabelExercicio>
               </div>
-              <div className="exercicios">
+              <div>
+                <S.LgButtonPrimary
+                  type="button"
+                  className={isAdding ? 'isActive' : 'hidden'}
+                  onClick={() => setIsAdding(!isAdding)}
+                >
+                  Cancelar
+                </S.LgButtonPrimary>
                 <S.LgButtonPrimary
                   type="button"
                   className={isAdding ? 'isActive' : 'hidden'}
