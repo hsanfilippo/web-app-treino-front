@@ -103,6 +103,9 @@ const FormNewTreino = () => {
     } else if (inputReps < 1) {
       alert('Insira um número de repetições à realizar.')
       return false
+    } else if (inputCarga < 0) {
+      alert('Insira um peso adequado')
+      return false
     } else if (inputInterval < 1) {
       alert('Insira um tempo de descanso (segundos).')
       return false
@@ -126,6 +129,7 @@ const FormNewTreino = () => {
       setNomeExercicio('')
       setSeries(0)
       setReps(0)
+      setCarga(0)
       setIntervSeg(0)
 
       setIsAdding(!isAdding)
@@ -135,7 +139,7 @@ const FormNewTreino = () => {
   const apenasCriar = (e: React.FormEvent) => {
     e.preventDefault()
     if (validateFieldsTreino(nome, descricao)) {
-      postTreino(nome, descricao)
+      postTreino(nome, descricao, exercicios)
       alert('Seu treino foi criado! ([POST]localhost:8000/api/treinos/)')
       navigate('/treinos/')
     }
@@ -201,11 +205,12 @@ const FormNewTreino = () => {
               Novo exercicio
             </S.LgButtonPrimary>
 
-            <form action="submit" className={isAdding ? 'isActive' : 'hidden'}>
+            <div className={isAdding ? 'isActive' : 'hidden'}>
               <Styles.InputExercicio
                 type="text"
                 placeholder="Novo exercicio:"
                 className="isActive"
+                value={nomeExercicio}
                 onChange={(e) => setNomeExercicio(e.target.value)}
               />
               <div className="exercicios">
@@ -215,6 +220,7 @@ const FormNewTreino = () => {
                     name="series"
                     min="0"
                     max="15"
+                    value={series}
                     onChange={(e) => setSeries(Number(e.target.value))}
                   />
                   <Styles.LabelExercicio htmlFor="series">
@@ -227,6 +233,7 @@ const FormNewTreino = () => {
                     name="reps"
                     min="0"
                     max="50"
+                    value={reps}
                     onChange={(e) => setReps(Number(e.target.value))}
                   />
                   <Styles.LabelExercicio htmlFor="reps">
@@ -239,7 +246,8 @@ const FormNewTreino = () => {
                     name="carga"
                     min="0"
                     max="300"
-                    onChange={(e) => setReps(Number(e.target.value))}
+                    value={carga}
+                    onChange={(e) => setCarga(Number(e.target.value))}
                   />
                   <Styles.LabelExercicio htmlFor="carga">
                     Kg
@@ -253,13 +261,21 @@ const FormNewTreino = () => {
                   name="intervalo"
                   min="0"
                   max="500"
+                  value={intervSeg}
                   onChange={(e) => setIntervSeg(Number(e.target.value))}
                 />
                 <Styles.LabelExercicio htmlFor="intervalo">
                   Segundos
                 </Styles.LabelExercicio>
               </div>
-              <div className="exercicios">
+              <div>
+                <S.LgButtonPrimary
+                  type="button"
+                  className={isAdding ? 'isActive' : 'hidden'}
+                  onClick={() => setIsAdding(!isAdding)}
+                >
+                  Cancelar
+                </S.LgButtonPrimary>
                 <S.LgButtonPrimary
                   type="button"
                   className={isAdding ? 'isActive' : 'hidden'}
@@ -268,7 +284,7 @@ const FormNewTreino = () => {
                   Adicionar exercicio
                 </S.LgButtonPrimary>
               </div>
-            </form>
+            </div>
 
             <S.LgButtonSecondary type="submit">Criar</S.LgButtonSecondary>
           </Styles.FormContainer>

@@ -3,13 +3,16 @@ import { createGlobalStyle, styled } from 'styled-components'
 export const cores = {
   corTexto: '#121714',
   corFundo: '#2b2b2b',
-  // corPrincipal: '#4066FF',
-  corPrincipal: '#141414',
-  corSecundaria: '#fff',
+  corPrincipal: '#B2FF54',
+  corSecundaria: '#833EE2',
   corBotaoPrimario: '#fff',
   corBotaoSecundario: '#6340FF',
   corBotaoDelete: 'red',
   corBotaoEdit: 'orange'
+}
+
+export const gradients = {
+  gradientPurple: 'linear-gradient(180deg, #110d17, #231339);'
 }
 
 export const GlobalStyle = createGlobalStyle`
@@ -23,8 +26,9 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background-color: ${cores.corFundo};
+    background: ${gradients.gradientPurple};
     padding-bottom: 80px;
+    height: 100vh;
   }
 
   .container {
@@ -53,9 +57,9 @@ export const MediumTitle = styled.p`
 // Card class
 
 export const Card = styled.div`
-  background-color: ${cores.corPrincipal};
   margin-top: 36px;
   padding: 32px;
+  border: 2px solid ${cores.corSecundaria};
   border-radius: 8px;
   text-align: center;
 `
@@ -120,21 +124,21 @@ export const ButtonSecondary = styled.button`
 `
 
 export const LgButtonPrimary = styled.button`
-  background-color: ${cores.corBotaoPrimario};
-  color: ${cores.corPrincipal};
+  background-color: transparent;
+  color: ${cores.corSecundaria};
   height: 40px;
   width: 100%;
   padding: 10px;
   font-weight: bold;
   font-size: 14px;
   border-radius: 8px;
-  border: none;
+  border: 2px solid ${cores.corSecundaria};
   cursor: pointer;
   margin-bottom: 8px;
 `
 export const LgButtonSecondary = styled.button`
-  background-color: ${cores.corBotaoSecundario};
-  color: ${cores.corSecundaria};
+  background-color: ${cores.corSecundaria};
+  color: #fff;
   height: 40px;
   width: 100%;
   padding: 10px;
