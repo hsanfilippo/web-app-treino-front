@@ -3,11 +3,7 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 
 export const ExercicioCard = styled.div`
-  background: linear-gradient(
-    90deg,
-    ${cores.corBotaoSecundario} -200%,
-    ${cores.corPrincipal} 85%
-  );
+  background: linear-gradient(0deg, ${cores.corSecundaria} 0%, #533ee2 85%);
   margin-bottom: 8px;
   padding: 16px;
   border-radius: 8px;
@@ -43,14 +39,21 @@ export const SubsContainer = styled.div`
 `
 
 export const NomeExercicio = styled.h4`
-  color: #cb3663;
-  font-size: 20px;
+  color: #fff;
+  font-size: 22px;
   margin-bottom: 8px;
 `
 
 export const SubsExercicio = styled.p`
   font-size: 16px;
+  font-weight: 800;
   color: #fff;
+
+  span {
+    font-size: 14px;
+    font-weight: 400;
+    color: #fff;
+  }
 `
 
 export const IconExcluir = styled.img`
