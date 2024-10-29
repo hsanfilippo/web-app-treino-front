@@ -38,11 +38,11 @@ export const SubsContainer = styled.div`
   max-width: 150px;
 `
 
-export const NomeExercicio = styled.h4`
-  color: #fff;
-  font-size: 22px;
-  margin-bottom: 8px;
-`
+// export const NomeExercicio = styled.h4`
+//   color: #fff;
+//   font-size: 22px;
+//   margin-bottom: 8px;
+// `
 
 export const SubsExercicio = styled.p`
   font-size: 16px;
