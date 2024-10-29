@@ -53,7 +53,7 @@ export const ButtonContainer = styled.div`
 `
 
 export const ButtonPrimary = styled.button`
-  background-color: ${cores.corBotaoPrimario};
+  background-color: ${cores.corPrincipal};
   color: ${cores.corPrincipal};
   height: 40px;
   width: 100px;
@@ -66,7 +66,7 @@ export const ButtonPrimary = styled.button`
 `
 
 export const ButtonSecondary = styled.button`
-  background-color: ${cores.corBotaoSecundario};
+  background-color: ${cores.corSecundaria};
   color: ${cores.corSecundaria};
   height: 40px;
   width: 100px;

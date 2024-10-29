@@ -4,6 +4,7 @@ import { BiEditAlt } from 'react-icons/bi'
 
 import * as S from '../../styles/index'
 import * as Styles from './styles'
+import * as Txt from '../../styles/text'
 
 const FormNewTreino = () => {
   type Exercicio = {
@@ -170,24 +171,23 @@ const FormNewTreino = () => {
                 <li key={index}>
                   <Styles.ExercicioCard>
                     <Styles.ExercicioContainer>
-                      <Styles.NomeExercicio>
-                        {exercicio.nome_exerc}
-                      </Styles.NomeExercicio>
+                      <Txt.TitleMd>{exercicio.nome_exerc}</Txt.TitleMd>
                       <Styles.SubsContainer>
                         <div>
                           <Styles.SubsExercicio>
-                            {exercicio.series} Series
+                            {exercicio.series} <span>Serie(s)</span>
                           </Styles.SubsExercicio>
                           <Styles.SubsExercicio>
-                            {exercicio.reps} Reps
+                            {exercicio.reps} <span>Reps</span>
                           </Styles.SubsExercicio>
                         </div>
                         <div>
                           <Styles.SubsExercicio>
-                            {exercicio.carga} kg
+                            {exercicio.carga} <span>kg</span>
                           </Styles.SubsExercicio>
                           <Styles.SubsExercicio>
-                            Desc. {exercicio.interv_seg}s
+                            <span>Interv.</span> {exercicio.interv_seg}
+                            <span> s</span>
                           </Styles.SubsExercicio>
                         </div>
                       </Styles.SubsContainer>

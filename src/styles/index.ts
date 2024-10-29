@@ -1,14 +1,9 @@
 import { createGlobalStyle, styled } from 'styled-components'
+import { cores_txt } from './text'
 
 export const cores = {
-  corTexto: '#121714',
-  corFundo: '#2b2b2b',
-  corPrincipal: '#B2FF54',
-  corSecundaria: '#833EE2',
-  corBotaoPrimario: '#fff',
-  corBotaoSecundario: '#6340FF',
-  corBotaoDelete: 'red',
-  corBotaoEdit: 'orange'
+  corPrincipal: '#B2ff54',
+  corSecundaria: '#833ee2'
 }
 
 export const gradients = {
@@ -22,7 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
     box-sizing: border-box;
     font-family: Roboto, sans-serif;
-    color: ${cores.corTexto}
+    color: ${cores_txt.corTextoPrimario}
   }
 
   body {
@@ -98,20 +93,20 @@ export const ButtonContainer = styled.div`
 `
 
 export const ButtonPrimary = styled.button`
-  background-color: ${cores.corBotaoPrimario};
-  color: ${cores.corPrincipal};
+  background-color: ${cores.corPrincipal};
+  color: ${cores_txt.corTextoSecundario};
   height: 40px;
   width: 100px;
   padding: 10px;
   font-weight: bold;
   font-size: 14px;
   border-radius: 8px;
-  border: none;
+  border: 1px solid ${cores.corSecundaria};
   cursor: pointer;
 `
 
 export const ButtonSecondary = styled.button`
-  background-color: ${cores.corBotaoSecundario};
+  background-color: ${cores.corSecundaria};
   color: ${cores.corSecundaria};
   height: 40px;
   width: 100px;
@@ -151,7 +146,7 @@ export const LgButtonSecondary = styled.button`
 `
 
 export const ButtonDelete = styled.button`
-  background-color: ${cores.corBotaoDelete};
+  background-color: ${cores.corSecundaria};
   color: ${cores.corSecundaria};
   height: 40px;
   width: 100px;
@@ -165,7 +160,7 @@ export const ButtonDelete = styled.button`
 `
 
 export const ButtonEdit = styled.button`
-  background-color: ${cores.corBotaoEdit};
+  background-color: ${cores.corSecundaria};
   color: ${cores.corSecundaria};
   height: 40px;
   width: 100px;
