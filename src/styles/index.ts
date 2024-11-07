@@ -3,7 +3,10 @@ import { cores_txt } from './text'
 
 export const cores = {
   corPrincipal: '#B2ff54',
-  corSecundaria: '#833ee2'
+  corSecundaria: '#833ee2',
+  textoPrimario: '#fff',
+  textoSecundario: '#833ee2',
+  textoEspecial: '#B2ff54'
 }
 
 export const gradients = {
@@ -77,7 +80,7 @@ export const Lista = styled.ul`
 `
 
 export const ItemLista = styled.li`
-  margin-top: 8px;
+  margin: 16px;
   text-align: left;
   color: ${cores.corSecundaria};
   font-size: 18px;
@@ -93,8 +96,8 @@ export const ButtonContainer = styled.div`
 `
 
 export const ButtonPrimary = styled.button`
-  background-color: ${cores.corPrincipal};
-  color: ${cores_txt.corTextoSecundario};
+  background-color: ${cores.corSecundaria};
+  color: ${cores_txt.corTextoPrimario};
   height: 40px;
   width: 100px;
   padding: 10px;
@@ -107,7 +110,7 @@ export const ButtonPrimary = styled.button`
 
 export const ButtonSecondary = styled.button`
   background-color: ${cores.corSecundaria};
-  color: ${cores.corSecundaria};
+  color: ${cores.textoPrimario};
   height: 40px;
   width: 100px;
   padding: 10px;
@@ -145,30 +148,16 @@ export const LgButtonSecondary = styled.button`
   margin-bottom: 8px;
 `
 
-export const ButtonDelete = styled.button`
-  background-color: ${cores.corSecundaria};
-  color: ${cores.corSecundaria};
+export const ButtonDeleteEdit = styled.button`
+  background-color: transparent;
+  color: ${cores.textoPrimario};
   height: 40px;
   width: 100px;
   padding: 10px;
   font-weight: bold;
   font-size: 14px;
   border-radius: 8px;
-  border: none;
-  cursor: pointer;
-  margin-right: 8px;
-`
-
-export const ButtonEdit = styled.button`
-  background-color: ${cores.corSecundaria};
-  color: ${cores.corSecundaria};
-  height: 40px;
-  width: 100px;
-  padding: 10px;
-  font-weight: bold;
-  font-size: 14px;
-  border-radius: 8px;
-  border: none;
+  border: 2px solid ${cores.corSecundaria};
   cursor: pointer;
   margin-right: 8px;
 `
