@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { format } from 'date-fns'
 
 import * as S from '../../styles/index'
-import { useNavigate } from 'react-router-dom'
+import * as txt from '../../styles/text'
+import * as styles from './styles'
 
 const ListTreinos = () => {
   const [treinos, setTreinos] = useState<any[]>([])
@@ -70,8 +72,10 @@ const ListTreinos = () => {
 
           return (
             <S.Card key={treino.id}>
-              <S.CardTitleSmall>{treino.nome}</S.CardTitleSmall>
-              <S.ItemLista>{treino.descricao}</S.ItemLista>
+              <txt.TitleBig>{treino.nome}</txt.TitleBig>
+              <styles.DescTreinoContainer>
+                <txt.TextMd>{treino.descricao}</txt.TextMd>
+              </styles.DescTreinoContainer>
               <S.LineDivision />
               <S.Lista>
                 {treino.exercicios.map(
@@ -80,30 +84,38 @@ const ListTreinos = () => {
                     nome_exerc: string
                     series: number
                     reps: number
+                    carga: number
                   }) => (
                     <S.ItemLista key={exercicio.id}>
-                      {exercicio.nome_exerc} - {exercicio.series} x{' '}
-                      {exercicio.reps} reps
+                      <txt.TitleSm>{exercicio.nome_exerc}</txt.TitleSm>
+                      <styles.TreinoInfoContainer>
+                        <txt.TextNum>
+                          {exercicio.series} <span>x</span> {exercicio.reps}{' '}
+                          <span>reps -</span> {exercicio.carga}kg
+                        </txt.TextNum>
+                      </styles.TreinoInfoContainer>
                     </S.ItemLista>
                   )
                 )}
               </S.Lista>
               <S.ButtonContainer>
                 <div>
-                  <S.ButtonDelete onClick={() => deleteTreino(treino.id)}>
+                  <S.ButtonDeleteEdit onClick={() => deleteTreino(treino.id)}>
                     Excluir
-                  </S.ButtonDelete>
-                  <S.ButtonEdit
+                  </S.ButtonDeleteEdit>
+                  <S.ButtonDeleteEdit
                     onClick={() => navigate(`/treinos/${treino.id}/edit/`)}
                   >
                     Editar
-                  </S.ButtonEdit>
+                  </S.ButtonDeleteEdit>
                 </div>
                 <S.ButtonPrimary>Abrir treino</S.ButtonPrimary>
               </S.ButtonContainer>
-              <S.ItemLista>
-                Editado por ultimo em: {formatDate} às {formatTime}
-              </S.ItemLista>
+              <styles.EditadoEm>
+                <txt.TextSm>
+                  Editado por ultimo em: {formatDate} às {formatTime}
+                </txt.TextSm>
+              </styles.EditadoEm>
             </S.Card>
           )
         })}

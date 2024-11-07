@@ -16,6 +16,12 @@ export const TitleMd = styled.h2`
   font-weight: bold;
 `
 
+export const TitleSm = styled.h2`
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 4px;
+`
+
 // Textos comuns
 export const TextBig = styled.p`
   font-size: 22px;
