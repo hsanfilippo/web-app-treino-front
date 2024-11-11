@@ -107,7 +107,7 @@ const FormEditTreino = () => {
                         <Styles.SubsExercicio>
                           <Styles.InputNumberEdit
                             type="number"
-                            onChange={(e) => setSeries(e.target.value)}
+                            onChange={(e) => setSeries(Number(e.target.value))}
                             value={exercicio.series}
                           />
                           <span>Serie(s)</span>
@@ -115,7 +115,7 @@ const FormEditTreino = () => {
                         <Styles.SubsExercicio>
                           <Styles.InputNumberEdit
                             type="number"
-                            onChange={(e) => setReps(e.target.value)}
+                            onChange={(e) => setReps(Number(e.target.value))}
                             value={exercicio.reps}
                           />
                           <span>Reps</span>
@@ -123,10 +123,22 @@ const FormEditTreino = () => {
                       </div>
                       <div>
                         <Styles.SubsExercicio>
-                          {exercicio.carga} <span>kg</span>
+                          <Styles.InputNumberEdit
+                            type="number"
+                            onChange={(e) => setCarga(Number(e.target.value))}
+                            value={exercicio.carga}
+                          />
+                          <span>kg</span>
                         </Styles.SubsExercicio>
                         <Styles.SubsExercicio>
-                          <span>Interv.</span> {exercicio.interv_seg}
+                          <span>Interv.</span>
+                          <Styles.InputNumberEdit
+                            type="number"
+                            onChange={(e) =>
+                              setIntervSeg(Number(e.target.value))
+                            }
+                            value={exercicio.interv_seg}
+                          />
                           <span>s</span>
                         </Styles.SubsExercicio>
                       </div>
