@@ -38,21 +38,19 @@ export const SubsContainer = styled.div`
   max-width: 150px;
 `
 
-// export const NomeExercicio = styled.h4`
-//   color: #fff;
-//   font-size: 22px;
-//   margin-bottom: 8px;
-// `
-
 export const SubsExercicio = styled.p`
   font-size: 16px;
   font-weight: 800;
   color: #fff;
+  width: 120px;
+  margin-right: 6px;
+  margin-bottom: 8px;
 
   span {
     font-size: 14px;
     font-weight: 400;
     color: #fff;
+    margin: 0 6px;
   }
 `
 
@@ -86,15 +84,15 @@ export const FormContainer = styled.form`
 
 export const InputTreinoEdit = styled.input`
   color: #fff;
-  width: 100%;
-  height: 3vh;
+  width: 250px;
+  height: 5vh;
   font-size: 16px;
   font-weight: 700;
   background: rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 6px;
   padding: 8px;
-  margin-bottom: 6px;
+  margin-bottom: 12px;
 `
 
 export const TextAreaTreino = styled.textarea`
@@ -125,10 +123,13 @@ export const InputExercicio = styled.input`
 
 export const InputNumberEdit = styled.input`
   border: none;
-  width: 26px;
+  width: 38px;
   height: 26px;
   text-align: center;
   border-radius: 4px;
+  margin-right: 6px;
+  margin: 0;
+  padding: 2px;
 `
 
 export const LabelExercicio = styled.label`
