@@ -1,9 +1,12 @@
-import TreinoDia from '../../components/TreinoDia'
+import CardNovo from '../../components/CardNovo'
+
+import * as S from '../../styles'
 
 const Home = () => {
   return (
     <>
-      <TreinoDia />
+      <S.MediumTitle>Bem vindo, Usuário!</S.MediumTitle>
+      <CardNovo />
     </>
   )
 }
