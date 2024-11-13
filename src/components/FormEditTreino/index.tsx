@@ -4,6 +4,7 @@ import { BiSolidTrash } from 'react-icons/bi'
 
 import * as S from '../../styles/index'
 import * as Styles from './styles'
+import * as Txt from '../../styles/text'
 
 const FormEditTreino = () => {
   type Exercicio = {
@@ -90,10 +91,10 @@ const FormEditTreino = () => {
 
   return (
     <>
-      <h1>Página de editar o treino</h1>
       <S.Container>
         <S.Card>
           <S.FormContainer>
+            <Txt.TextMd>Clique em qualquer campo para editar</Txt.TextMd>
             <S.NomeTreinoForm
               type="text"
               onChange={(e) => SetNome(e.target.value)}
