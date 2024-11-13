@@ -44,7 +44,7 @@ const FormEditTreino = () => {
   const putTreino = async (
     nome: string,
     descricao: string,
-    exercicios?: Exercicio
+    exercicios?: Exercicio[]
   ) => {
     try {
       const payloadAlteracoes = {
@@ -52,7 +52,7 @@ const FormEditTreino = () => {
         descricao,
         exercicios
       }
-
+      console.log(JSON.stringify(payloadAlteracoes, null, 2))
       const response = await fetch(`http://localhost:8000/api/treinos/${id}/`, {
         method: 'PUT',
         headers: {
@@ -70,9 +70,18 @@ const FormEditTreino = () => {
     }
   }
 
+  // Função que atualiza os campos de um determinado exercício:
+  const handleInputChange = (index: number, field: string, value: any) => {
+    setExercicios((prevExercicios) =>
+      prevExercicios.map((exercicio, i) =>
+        i === index ? { ...exercicio, [field]: value } : exercicio
+      )
+    )
+  }
+
   const salvarTreino = (e: React.FormEvent) => {
     e.preventDefault()
-    putTreino(nome, descricao)
+    putTreino(nome, descricao, exercicios)
     alert('As alterações no treino foram salvas.')
     navigate('/treinos/')
   }
@@ -100,7 +109,9 @@ const FormEditTreino = () => {
                   <Styles.ExercicioContainer>
                     <Styles.InputTreinoEdit
                       type="text"
-                      onChange={(e) => setNomeExercicio(e.target.value)}
+                      onChange={(e) =>
+                        handleInputChange(index, 'nome_exerc', e.target.value)
+                      }
                       value={exercicio.nome_exerc}
                     />
                     <Styles.SubsContainer>
@@ -108,7 +119,9 @@ const FormEditTreino = () => {
                         <Styles.SubsExercicio>
                           <Styles.InputNumberEdit
                             type="number"
-                            onChange={(e) => setSeries(Number(e.target.value))}
+                            onChange={(e) =>
+                              handleInputChange(index, 'series', e.target.value)
+                            }
                             value={exercicio.series}
                           />
                           <span>Serie(s)</span>
@@ -116,7 +129,9 @@ const FormEditTreino = () => {
                         <Styles.SubsExercicio>
                           <Styles.InputNumberEdit
                             type="number"
-                            onChange={(e) => setReps(Number(e.target.value))}
+                            onChange={(e) =>
+                              handleInputChange(index, 'reps', e.target.value)
+                            }
                             value={exercicio.reps}
                           />
                           <span>Reps</span>
@@ -126,7 +141,9 @@ const FormEditTreino = () => {
                         <Styles.SubsExercicio>
                           <Styles.InputNumberEdit
                             type="number"
-                            onChange={(e) => setCarga(Number(e.target.value))}
+                            onChange={(e) =>
+                              handleInputChange(index, 'carga', e.target.value)
+                            }
                             value={exercicio.carga}
                           />
                           <span>kg</span>
@@ -136,7 +153,11 @@ const FormEditTreino = () => {
                           <Styles.InputNumberEdit
                             type="number"
                             onChange={(e) =>
-                              setIntervSeg(Number(e.target.value))
+                              handleInputChange(
+                                index,
+                                'interv_seg',
+                                e.target.value
+                              )
                             }
                             value={exercicio.interv_seg}
                           />
