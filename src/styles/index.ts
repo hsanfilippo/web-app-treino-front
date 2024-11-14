@@ -26,7 +26,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     background: ${gradients.gradientPurple};
     padding-bottom: 80px;
-    height: 100vh;
+    height: 100%;
   }
 
   .container {
