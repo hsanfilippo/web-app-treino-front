@@ -20,7 +20,25 @@ export const Card = styled.div`
   margin-top: 36px;
   padding: 32px;
   border-radius: 8px;
-  text-align: center;
+  text-align: left;
+  overflow: hidden;
+  position: relative;
+  height: 150px;
+  cursor: pointer;
+  transition: 0.4s ease;
+
+  &:hover {
+    transition: 0.4s ease;
+    scale: 1.03;
+  }
+
+  img {
+    width: 60%;
+    object-fit: cover;
+    position: absolute;
+    top: -10px;
+    right: -20px;
+  }
 `
 
 export const CardTitle = styled.h2`
