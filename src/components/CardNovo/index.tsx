@@ -7,11 +7,17 @@ const CardNovo = () => {
   return (
     <>
       <S.Container>
+        <S.Card onClick={() => navigate('/treinos/')}>
+          <S.CardTitle>
+            Meus <br /> Treinos
+          </S.CardTitle>
+          <img src="https://static-file-vault.vercel.app/sapiens_fem_color.svg" />
+        </S.Card>
         <S.Card onClick={() => navigate('/treinos/new')}>
-          <h2>
+          <S.CardTitle>
             Novo <br /> Treino
-          </h2>
-          <img src="https://static-file-vault.vercel.app/sapiens.svg" />
+          </S.CardTitle>
+          <img src="https://static-file-vault.vercel.app/sapiens_color.svg" />
         </S.Card>
       </S.Container>
     </>
