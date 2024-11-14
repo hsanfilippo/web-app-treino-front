@@ -16,7 +16,7 @@ export const MediumTitle = styled.p`
 `
 
 export const Card = styled.div`
-  background-color: ${cores.corPrincipal};
+  background-color: ${cores.corSecundaria};
   margin-top: 36px;
   padding: 32px;
   border-radius: 8px;
@@ -27,9 +27,20 @@ export const Card = styled.div`
   cursor: pointer;
   transition: 0.4s ease;
 
+  h2 {
+    filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.4));
+    font-size: 36px;
+  }
+
   &:hover {
-    transition: 0.4s ease;
-    scale: 1.03;
+    transition: 0.2s ease;
+    background: none;
+    border: 3px solid ${cores.corSecundaria};
+
+    img {
+      transition: 0.2s ease;
+      filter: grayscale(0%);
+    }
   }
 
   img {
@@ -38,17 +49,18 @@ export const Card = styled.div`
     position: absolute;
     top: -10px;
     right: -20px;
+    filter: grayscale(100%);
   }
 `
 
 export const CardTitle = styled.h2`
-  color: ${cores.corSecundaria};
+  color: ${cores.textoPrimario};
   font-size: 30px;
 `
 
-export const CardTitleSmall = styled.h2`
-  color: ${cores.corSecundaria};
-  font-size: 20px;
+export const CardSubTitle = styled.h3`
+  color: ${cores.textoPrimario};
+  font-size: 24px;
 `
 
 export const Lista = styled.ul`
