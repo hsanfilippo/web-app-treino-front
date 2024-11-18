@@ -1,7 +1,13 @@
 import FormEditTreino from '../../components/FormEditTreino'
+import Header from '../../components/Header'
 
 const EditTreino = () => {
-  return <FormEditTreino />
+  return (
+    <>
+      <Header />
+      <FormEditTreino />
+    </>
+  )
 }
 
 export default EditTreino

@@ -1,7 +1,13 @@
 import FormNewTreino from '../../components/FormNewTreino'
+import Header from '../../components/Header'
 
 const NewTreino = () => {
-  return <FormNewTreino />
+  return (
+    <>
+      <Header />
+      <FormNewTreino />
+    </>
+  )
 }
 
 export default NewTreino

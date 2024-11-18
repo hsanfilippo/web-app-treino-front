@@ -1,10 +1,14 @@
+import Header from '../../components/Header'
 import ListTreinos from '../../components/ListTreinos'
 
 const Treinos = () => {
   return (
-    <ul>
-      <ListTreinos />
-    </ul>
+    <>
+      <Header />
+      <ul>
+        <ListTreinos />
+      </ul>
+    </>
   )
 }
 
