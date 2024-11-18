@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
     list-style: none;
     box-sizing: border-box;
     font-family: Roboto, sans-serif;
-    color: ${cores_txt.corTextoSecundario}
+    color: ${cores_txt.corTextoPrimario}
   }
 
   body {

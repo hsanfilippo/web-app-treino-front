@@ -4,7 +4,7 @@ import { cores } from '../../styles'
 
 export const ExercicioCard = styled.div`
   background: linear-gradient(0deg, ${cores.corSecundaria} 0%, #533ee2 85%);
-  margin-bottom: 8px;
+  margin-bottom: 16px;
   padding: 16px;
   border-radius: 8px;
   text-align: left;
@@ -18,13 +18,10 @@ export const ExercicioCard = styled.div`
     font-size: 35px;
     border-radius: 8px;
     padding: 4px;
-  }
 
-  .alarm-icon {
-    background-color: #fff;
-    border-radius: 3px;
-    height: 20 px;
-    margin-right: 8px;
+    path {
+      color: ${cores.corSecundaria};
+    }
   }
 `
 
@@ -130,6 +127,8 @@ export const InputNumberEdit = styled.input`
   margin-right: 6px;
   margin: 0;
   padding: 2px;
+  font-weight: bold;
+  color: ${cores.textoSecundario};
 `
 
 export const LabelExercicio = styled.label`

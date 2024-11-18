@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { BiEditAlt } from 'react-icons/bi'
+import { BiSolidTrash } from 'react-icons/bi'
 
 import * as S from '../../styles/index'
 import * as Styles from './styles'
@@ -192,7 +192,7 @@ const FormNewTreino = () => {
                         </div>
                       </Styles.SubsContainer>
                     </Styles.ExercicioContainer>
-                    <BiEditAlt className="icones" />
+                    <BiSolidTrash className="icones" />
                   </Styles.ExercicioCard>
                 </li>
               ))}
