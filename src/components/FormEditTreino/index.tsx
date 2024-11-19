@@ -31,7 +31,7 @@ const FormEditTreino = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch(`${HOST_API}/api/treinos/${id}/`)
+    fetch(`${process.env.REACT_APP_HOST_API}/api/treinos/${id}/`)
       .then((response) => response.json())
       .then((data) => {
         setTreino(data)
@@ -54,7 +54,7 @@ const FormEditTreino = () => {
         exercicios
       }
       console.log(JSON.stringify(payloadAlteracoes, null, 2))
-      const response = await fetch(`${HOST_API}/treinos/${id}/`, {
+      const response = await fetch(`${process.env.REACT_APP_HOST_API}/treinos/${id}/`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'
