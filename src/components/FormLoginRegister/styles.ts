@@ -1,17 +1,37 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
 
+export const AvisoSenha = styled.div`
+  text-align: center;
+  margin-top: 32px;
+
+  p {
+    margin-top: 16px;
+  }
+`
+
 export const CardLogin = styled.div`
-  margin: 57% 0; // Ajustar essas medidas ou o background
-  padding: 32px;
+  margin-top: 90px; // Ajustar essas medidas ou o background
   border-radius: 8px;
+  padding: 16px;
   text-align: center;
   background-color: ${cores.corSecundaria};
+
+  .image-placeholder {
+    background-color: ${cores.corSecundariaSub};
+    padding: 24px;
+    border-radius: 8px;
+  }
+
+  img {
+    height: 100px;
+  }
 
   .formContainer {
     display: flex;
     justify-content: center;
-    margin-top: 80px;
+    margin-top: 30px;
+    padding: 16px;
   }
 
   form {
@@ -32,23 +52,34 @@ export const CardLogin = styled.div`
     padding: 16px;
     border-radius: 10px;
     border: none;
+    font-size: 16px;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   p {
     margin-top: 20px;
+    transition: 0.1s ease;
+
+    &:hover {
+      transition: 0.1s ease;
+      color: ${cores.corSecundariaSub};
+    }
   }
 `
 
 export const LoginButton = styled.button`
-  background-color: #fff;
-  color: ${cores.corSecundaria};
+  background-color: ${cores.corSecundariaSub};
+  color: ${cores.textoPrimario};
   height: 40px;
   width: 100%;
   padding: 10px;
   font-weight: bold;
   font-size: 14px;
   border-radius: 8px;
-  border: 2px solid ${cores.corSecundaria};
+  border: none;
   cursor: pointer;
   margin-bottom: 8px;
 `
