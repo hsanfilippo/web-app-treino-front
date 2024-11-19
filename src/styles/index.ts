@@ -4,6 +4,7 @@ import { cores_txt } from './text'
 export const cores = {
   corPrincipal: '#B2ff54',
   corSecundaria: '#833ee2',
+  corSecundariaSub: '#6815d8',
   textoPrimario: '#fff',
   textoSecundario: '#833ee2',
   textoEspecial: '#B2ff54'
@@ -86,7 +87,7 @@ export const ItemLista = styled.li`
   font-size: 18px;
 `
 
-// Buttons class
+// Buttons class **** Alinhar as cores: Buttons primarios e secundarios utilizam a mesma cor ****
 
 export const ButtonContainer = styled.div`
   max-width: 100%;
