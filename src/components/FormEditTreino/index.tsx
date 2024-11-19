@@ -54,7 +54,7 @@ const FormEditTreino = () => {
         exercicios
       }
       console.log(JSON.stringify(payloadAlteracoes, null, 2))
-      const response = await fetch(`http://localhost:8000/api/treinos/${id}/`, {
+      const response = await fetch(`${HOST_API}/treinos/${id}/`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json'

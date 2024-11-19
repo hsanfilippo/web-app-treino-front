@@ -31,7 +31,7 @@ const FormNewTreino = () => {
 
   const fetchTreinos = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/treinos/')
+      const response = await fetch(`${HOST_API}/treinos/`)
       if (!response.ok) {
         throw new Error('Erro ao requisitar os treinos da API')
       }
@@ -60,7 +60,7 @@ const FormNewTreino = () => {
         exercicios
       }
 
-      const response = await fetch('http://localhost:8000/api/treinos/', {
+      const response = await fetch(`${HOST_API}/api/treinos/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

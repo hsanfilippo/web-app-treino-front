@@ -16,7 +16,7 @@ const ListTreinos = () => {
   const fetchTreinos = async () => {
     try {
       const response = await fetch(
-        'http://localhost:8000/api/treinos/?format=json'
+        `${HOST_API}/treinos/?format=json`
       )
       if (!response.ok) {
         throw new Error('Erro ao requisitar os treinos da API')
