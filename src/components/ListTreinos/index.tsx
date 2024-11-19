@@ -15,9 +15,7 @@ const ListTreinos = () => {
 
   const fetchTreinos = async () => {
     try {
-      const response = await fetch(
-        `${HOST_API}/treinos/?format=json`
-      )
+      const response = await fetch(`${HOST_API}/treinos/?format=json`)
       if (!response.ok) {
         throw new Error('Erro ao requisitar os treinos da API')
       }
@@ -32,12 +30,9 @@ const ListTreinos = () => {
 
   const deleteTreino = async (id_treino: string) => {
     try {
-      const response = await fetch(
-        `${HOST_API}/treinos/${id_treino}/`,
-        {
-          method: 'DELETE'
-        }
-      )
+      const response = await fetch(`${HOST_API}/treinos/${id_treino}/`, {
+        method: 'DELETE'
+      })
       if (!response.ok) {
         throw new Error('Erro ao deletar o treino da API')
       }
