@@ -54,13 +54,15 @@ const FormEditTreino = () => {
         exercicios
       }
       console.log(JSON.stringify(payloadAlteracoes, null, 2))
-      const response = await fetch(`${process.env.REACT_APP_HOST_API}/treinos/${id}/`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payloadAlteracoes)
-      })
+      const response = await fetch(
+        `${process.env.REACT_APP_HOST_API}/treinos/${id}/`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payloadAlteracoes)
+        })
       if (!response.ok) {
         throw new Error('Erro ao salvar o treino')
       }

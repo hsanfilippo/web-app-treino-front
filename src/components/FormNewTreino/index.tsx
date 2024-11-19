@@ -60,13 +60,15 @@ const FormNewTreino = () => {
         exercicios
       }
 
-      const response = await fetch(`${process.env.REACT_APP_HOST_API}/api/treinos/`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(novoTreino)
-      })
+      const response = await fetch(
+        `${process.env.REACT_APP_HOST_API}/api/treinos/`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(novoTreino)
+        })
       if (!response.ok) {
         throw new Error('Erro ao requisitar os treinos da API')
       }
