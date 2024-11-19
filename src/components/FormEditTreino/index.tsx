@@ -31,7 +31,7 @@ const FormEditTreino = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/treinos/${id}/`)
+    fetch(`${HOST_API}/api/treinos/${id}/`)
       .then((response) => response.json())
       .then((data) => {
         setTreino(data)

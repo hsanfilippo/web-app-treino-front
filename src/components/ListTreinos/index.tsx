@@ -33,7 +33,7 @@ const ListTreinos = () => {
   const deleteTreino = async (id_treino: string) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/treinos/${id_treino}/`,
+        `${HOST_API}/treinos/${id_treino}/`,
         {
           method: 'DELETE'
         }
