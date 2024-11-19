@@ -68,7 +68,8 @@ const FormNewTreino = () => {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(novoTreino)
-        })
+        }
+      )
       if (!response.ok) {
         throw new Error('Erro ao requisitar os treinos da API')
       }

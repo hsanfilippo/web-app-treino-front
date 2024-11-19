@@ -16,7 +16,8 @@ const ListTreinos = () => {
   const fetchTreinos = async () => {
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_HOST_API}/treinos/?format=json`)
+        `${process.env.REACT_APP_HOST_API}/treinos/?format=json`
+      )
       if (!response.ok) {
         throw new Error('Erro ao requisitar os treinos da API')
       }
@@ -35,7 +36,8 @@ const ListTreinos = () => {
         `${process.env.REACT_APP_HOST_API}/treinos/${id_treino}/`,
         {
           method: 'DELETE'
-        })
+        }
+      )
       if (!response.ok) {
         throw new Error('Erro ao deletar o treino da API')
       }

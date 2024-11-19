@@ -62,7 +62,8 @@ const FormEditTreino = () => {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(payloadAlteracoes)
-        })
+        }
+      )
       if (!response.ok) {
         throw new Error('Erro ao salvar o treino')
       }
