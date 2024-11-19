@@ -16,7 +16,7 @@ const ListTreinos = () => {
   const fetchTreinos = async () => {
     try {
       const response = await fetch(
-        `http://ec2-54-209-36-161.compute-1.amazonaws.com/api/treinos/?format=json`
+        `https://web-app-treino-back.onrender.com/api/treinos/?format=json`
       )
       if (!response.ok) {
         throw new Error('Erro ao requisitar os treinos da API')
@@ -33,7 +33,7 @@ const ListTreinos = () => {
   const deleteTreino = async (id_treino: string) => {
     try {
       const response = await fetch(
-        `http://ec2-54-209-36-161.compute-1.amazonaws.com/api/treinos/${id_treino}/`,
+        `https://web-app-treino-back.onrender.com/api/treinos/${id_treino}/`,
         {
           method: 'DELETE'
         }

@@ -32,7 +32,7 @@ const FormNewTreino = () => {
   const fetchTreinos = async () => {
     try {
       const response = await fetch(
-        `http://ec2-54-209-36-161.compute-1.amazonaws.com/api/treinos/`
+        `https://web-app-treino-back.onrender.com/api/treinos/`
       )
       if (!response.ok) {
         throw new Error('Erro ao requisitar os treinos da API')
@@ -63,7 +63,7 @@ const FormNewTreino = () => {
       }
 
       const response = await fetch(
-        `http://ec2-54-209-36-161.compute-1.amazonaws.com/api/treinos/`,
+        `https://web-app-treino-back.onrender.com/api/treinos/`,
         {
           method: 'POST',
           headers: {

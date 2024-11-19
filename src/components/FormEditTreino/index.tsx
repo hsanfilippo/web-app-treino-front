@@ -31,7 +31,7 @@ const FormEditTreino = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch(`http://ec2-54-209-36-161.compute-1.amazonaws.com/api/treinos/${id}/`)
+    fetch(`https://web-app-treino-back.onrender.com/api/treinos/${id}/`)
       .then((response) => response.json())
       .then((data) => {
         setTreino(data)
@@ -55,7 +55,7 @@ const FormEditTreino = () => {
       }
       console.log(JSON.stringify(payloadAlteracoes, null, 2))
       const response = await fetch(
-        `http://ec2-54-209-36-161.compute-1.amazonaws.com/api/treinos/${id}/`,
+        `https://web-app-treino-back.onrender.com/api/treinos/${id}/`,
         {
           method: 'PUT',
           headers: {
