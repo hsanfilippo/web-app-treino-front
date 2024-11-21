@@ -149,20 +149,6 @@ export const LgButtonSecondary = styled.button`
   margin-bottom: 8px;
 `
 
-export const ButtonDeleteEdit = styled.button`
-  background-color: transparent;
-  color: ${cores.textoPrimario};
-  height: 40px;
-  width: 100px;
-  padding: 10px;
-  font-weight: bold;
-  font-size: 14px;
-  border-radius: 8px;
-  border: 2px solid ${cores.corSecundaria};
-  cursor: pointer;
-  margin-right: 8px;
-`
-
 // Form Styles
 
 export const FormContainer = styled.form`
