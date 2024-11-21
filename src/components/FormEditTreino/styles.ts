@@ -26,7 +26,14 @@ export const ExercicioCard = styled.div`
 `
 
 export const ExercicioContainer = styled.div`
-  width: 230px;
+  width: 100%;
+`
+
+export const NomeExercicioContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
 `
 
 export const SubsContainer = styled.div`
@@ -81,7 +88,7 @@ export const FormContainer = styled.form`
 
 export const InputTreinoEdit = styled.input`
   color: #fff;
-  width: 250px;
+  width: 80%;
   height: 5vh;
   font-size: 16px;
   font-weight: 700;
@@ -89,7 +96,6 @@ export const InputTreinoEdit = styled.input`
   border: none;
   border-radius: 6px;
   padding: 8px;
-  margin-bottom: 12px;
 `
 
 export const TextAreaTreino = styled.textarea`

@@ -111,13 +111,16 @@ const FormEditTreino = () => {
               <div key={index}>
                 <Styles.ExercicioCard>
                   <Styles.ExercicioContainer>
-                    <Styles.InputTreinoEdit
-                      type="text"
-                      onChange={(e) =>
-                        handleInputChange(index, 'nome_exerc', e.target.value)
-                      }
-                      value={exercicio.nome_exerc}
-                    />
+                    <Styles.NomeExercicioContainer>
+                      <Styles.InputTreinoEdit
+                        type="text"
+                        onChange={(e) =>
+                          handleInputChange(index, 'nome_exerc', e.target.value)
+                        }
+                        value={exercicio.nome_exerc}
+                      />
+                      <BiSolidTrash className="icones" />
+                    </Styles.NomeExercicioContainer>
                     <Styles.SubsContainer>
                       <div>
                         <Styles.SubsExercicio>
@@ -170,7 +173,6 @@ const FormEditTreino = () => {
                       </div>
                     </Styles.SubsContainer>
                   </Styles.ExercicioContainer>
-                  <BiSolidTrash className="icones" />
                 </Styles.ExercicioCard>
               </div>
             ))}
