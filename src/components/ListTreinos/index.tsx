@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { format } from 'date-fns'
 
-import * as S from '../../styles/index'
-import * as txt from '../../styles/text'
-import * as styles from './styles'
+import * as Global from '../../styles/index'
+import * as Txt from '../../styles/text'
+import * as S from './styles'
+import LoadingMsg from '../LoadingMsg'
 
 const ListTreinos = () => {
   const [treinos, setTreinos] = useState<any[]>([])
@@ -16,7 +17,7 @@ const ListTreinos = () => {
   const fetchTreinos = async () => {
     try {
       const response = await fetch(
-        'http://localhost:8000/api/treinos/?format=json'
+        `https://web-app-treino-back.onrender.com/api/treinos/?format=json`
       )
       if (!response.ok) {
         throw new Error('Erro ao requisitar os treinos da API')
@@ -33,7 +34,7 @@ const ListTreinos = () => {
   const deleteTreino = async (id_treino: string) => {
     try {
       const response = await fetch(
-        `http://localhost:8000/api/treinos/${id_treino}/`,
+        `https://web-app-treino-back.onrender.com/api/treinos/${id_treino}/`,
         {
           method: 'DELETE'
         }
@@ -53,31 +54,31 @@ const ListTreinos = () => {
 
   if (loading) {
     return (
-      <S.Container>
-        Mensagem de loading aqui, precisa fazer algo bonitinho depois
-      </S.Container>
+      <Global.Container>
+        <LoadingMsg />
+      </Global.Container>
     )
   }
 
   if (error) {
-    return <S.Container>Msg de erro: {error}</S.Container>
+    return <Global.Container>Msg de erro: {error}</Global.Container>
   }
 
   return (
     <>
-      <S.Container>
+      <Global.Container>
         {treinos.map((treino) => {
           const formatDate = format(new Date(treino.updated_at), 'dd/MM/yyyy')
           const formatTime = format(new Date(treino.updated_at), 'HH:mm')
 
           return (
-            <S.Card key={treino.id}>
-              <txt.TitleBig>{treino.nome}</txt.TitleBig>
-              <styles.DescTreinoContainer>
-                <txt.TextMd>{treino.descricao}</txt.TextMd>
-              </styles.DescTreinoContainer>
-              <S.LineDivision />
-              <S.Lista>
+            <Global.Card key={treino.id}>
+              <Txt.TitleBig>{treino.nome}</Txt.TitleBig>
+              <S.DescTreinoContainer>
+                <Txt.TextMd>{treino.descricao}</Txt.TextMd>
+              </S.DescTreinoContainer>
+              <Global.LineDivision />
+              <Global.Lista>
                 {treino.exercicios.map(
                   (exercicio: {
                     id: string
@@ -86,40 +87,40 @@ const ListTreinos = () => {
                     reps: number
                     carga: number
                   }) => (
-                    <S.ItemLista key={exercicio.id}>
-                      <txt.TitleSm>{exercicio.nome_exerc}</txt.TitleSm>
-                      <styles.TreinoInfoContainer>
-                        <txt.TextNum>
+                    <Global.ItemLista key={exercicio.id}>
+                      <Txt.TitleSm>{exercicio.nome_exerc}</Txt.TitleSm>
+                      <S.TreinoInfoContainer>
+                        <Txt.TextNum>
                           {exercicio.series} <span>x</span> {exercicio.reps}{' '}
                           <span>reps -</span> {exercicio.carga}kg
-                        </txt.TextNum>
-                      </styles.TreinoInfoContainer>
-                    </S.ItemLista>
+                        </Txt.TextNum>
+                      </S.TreinoInfoContainer>
+                    </Global.ItemLista>
                   )
                 )}
-              </S.Lista>
-              <S.ButtonContainer>
-                <div>
-                  <S.ButtonDeleteEdit onClick={() => deleteTreino(treino.id)}>
+              </Global.Lista>
+              <Global.ButtonContainer>
+                <S.EditDeleteDiv>
+                  <S.ButtonEditDelete onClick={() => deleteTreino(treino.id)}>
                     Excluir
-                  </S.ButtonDeleteEdit>
-                  <S.ButtonDeleteEdit
+                  </S.ButtonEditDelete>
+                  <S.ButtonEditDelete
                     onClick={() => navigate(`/treinos/${treino.id}/edit/`)}
                   >
                     Editar
-                  </S.ButtonDeleteEdit>
-                </div>
-                <S.ButtonPrimary>Abrir treino</S.ButtonPrimary>
-              </S.ButtonContainer>
-              <styles.EditadoEm>
-                <txt.TextSm>
+                  </S.ButtonEditDelete>
+                </S.EditDeleteDiv>
+                <Global.ButtonPrimary>Abrir treino</Global.ButtonPrimary>
+              </Global.ButtonContainer>
+              <S.EditadoEm>
+                <Txt.TextSm>
                   Editado por ultimo em: {formatDate} às {formatTime}
-                </txt.TextSm>
-              </styles.EditadoEm>
-            </S.Card>
+                </Txt.TextSm>
+              </S.EditadoEm>
+            </Global.Card>
           )
         })}
-      </S.Container>
+      </Global.Container>
     </>
   )
 }

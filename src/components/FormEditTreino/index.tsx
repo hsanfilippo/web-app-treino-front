@@ -31,7 +31,7 @@ const FormEditTreino = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch(`http://localhost:8000/api/treinos/${id}/`)
+    fetch(`https://web-app-treino-back.onrender.com/api/treinos/${id}/`)
       .then((response) => response.json())
       .then((data) => {
         setTreino(data)
@@ -54,13 +54,16 @@ const FormEditTreino = () => {
         exercicios
       }
       console.log(JSON.stringify(payloadAlteracoes, null, 2))
-      const response = await fetch(`http://localhost:8000/api/treinos/${id}/`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(payloadAlteracoes)
-      })
+      const response = await fetch(
+        `https://web-app-treino-back.onrender.com/api/treinos/${id}/`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payloadAlteracoes)
+        }
+      )
       if (!response.ok) {
         throw new Error('Erro ao salvar o treino')
       }

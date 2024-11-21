@@ -31,7 +31,9 @@ const FormNewTreino = () => {
 
   const fetchTreinos = async () => {
     try {
-      const response = await fetch('http://localhost:8000/api/treinos/')
+      const response = await fetch(
+        `https://web-app-treino-back.onrender.com/api/treinos/`
+      )
       if (!response.ok) {
         throw new Error('Erro ao requisitar os treinos da API')
       }
@@ -60,13 +62,16 @@ const FormNewTreino = () => {
         exercicios
       }
 
-      const response = await fetch('http://localhost:8000/api/treinos/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(novoTreino)
-      })
+      const response = await fetch(
+        `https://web-app-treino-back.onrender.com/api/treinos/`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(novoTreino)
+        }
+      )
       if (!response.ok) {
         throw new Error('Erro ao requisitar os treinos da API')
       }
