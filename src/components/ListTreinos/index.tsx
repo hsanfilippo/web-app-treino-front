@@ -24,7 +24,7 @@ const ListTreinos = () => {
       }
       const data = await response.json()
       setTreinos(data)
-      // setLoading(false)
+      setLoading(false)
     } catch (err: any) {
       setError(err.message)
       setLoading(false)
